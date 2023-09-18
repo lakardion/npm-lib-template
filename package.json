@@ -1,0 +1,27 @@
+{
+  "name": "name-your-library",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "ci": "pnpm run lint && pnpm run test && pnpm run build",
+    "release": "pnpm run ci && changeset publish",
+    "dev:watch": "tsup src/index.ts --format cjs,esm --dts --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@types/node": "^20.6.2",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.4"
+  }
+}
